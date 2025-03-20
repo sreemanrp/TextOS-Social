@@ -39,6 +39,7 @@
         }
 
         .header a.active {
+            color: #fff;
             border-bottom: none;
         }
 
@@ -57,7 +58,7 @@
 
         .footer {
             position: fixed;
-            bottom: 30px; /* Adjusted footer position */
+            bottom: 30px;
             left: 0;
             width: 100%;
             background-color: #000;
@@ -72,6 +73,10 @@
         }
 
         .footer a:hover, .footer a.active {
+            color: #fff;
+        }
+
+        .footer a.active {
             color: #fff;
         }
 
@@ -98,16 +103,41 @@
             cursor: pointer;
             margin-top: 10px;
         }
+
+        /* Notification Dot */
+        .notification-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+        
+        .header a[data-section="following"],
+        .footer a[data-section="home"] {
+            color: #fff; /* Default white color for following and home */
+        }
+        
+        .header a[data-section="for-you"]:hover,
+        .header a[data-section="search"]:hover {
+            color: #fff; /* Hover color for for-you and search */
+        }
+
+        .header a[data-section="for-you"].active,
+        .header a[data-section="search"].active {
+            color: #fff; /* Active color for for-you and search */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div>
-                <a href="#" class="active">for you</a>
-                <a href="#">following</a>
+                <a href="#" data-section="for-you">for you</a>
+                <a href="#" class="active" data-section="following">following</a>
             </div>
-            <a href="#">search</a>
+            <a href="#" data-section="search">search</a>
         </div>
 
         <div class="post">
@@ -138,11 +168,11 @@
     </div>
 
     <div class="footer">
-        <a href="#" class="active">home</a>
-        <a href="#">profile</a>
-        <a href="#">new</a>
-        <a href="#">chat</a>
-        <a href="#">write</a>
+        <a href="#" class="active" data-section="home">home</a>
+        <a href="#" data-section="profile">profile</a>
+        <a href="#" data-section="new">new<notification-dot></notification-dot></a>
+        <a href="#" data-section="chat">chat</a>
+        <a href="#" data-section="write">write</a>
     </div>
 
     <div class="install-prompt">
@@ -185,6 +215,20 @@
                 });
             });
         }
+
+        // Active Link Logic
+        const headerLinks = document.querySelectorAll('.header a');
+
+        headerLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                headerLinks.forEach(l => {
+                    l.classList.remove('active');
+                    l.style.color = '#A1A1A1'; // Reset color
+                });
+                this.classList.add('active');
+                this.style.color = '#fff'; // Set clicked link color to white
+            });
+        });
     </script>
 </body>
 </html>
