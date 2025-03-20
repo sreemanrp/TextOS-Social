@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: #000; /* Black background */
+            color: #fff; /* White font color */
             margin: 0;
             padding: 0;
         }
@@ -28,13 +28,18 @@
         }
 
         .header a {
-            color: #e0e0e0;
+            color: #A1A1A1; /* Option color */
             text-decoration: none;
             padding: 5px 10px;
         }
 
+        .header a:hover, .header a.active {
+            color: #fff; /* Hover/active color */
+            border-bottom: none; /* Remove underline */
+        }
+
         .header a.active {
-            border-bottom: 2px solid #e0e0e0;
+            border-bottom: none; /* Remove underline from active */
         }
 
         .post {
@@ -56,7 +61,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #121212;
+            background-color: #000;
             border-top: 1px solid #333;
             display: flex;
             justify-content: space-around;
@@ -64,8 +69,12 @@
         }
 
         .footer a {
-            color: #e0e0e0;
+            color: #A1A1A1; /* Option color */
             text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #fff; /* Hover color */
         }
 
         /* PWA styles */
@@ -75,7 +84,7 @@
             left: 50%;
             transform: translateX(-50%);
             background-color: #222;
-            color: #e0e0e0;
+            color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
             text-align: center;
