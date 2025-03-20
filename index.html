@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
     <title>Text-Only Timeline</title>
     <style>
         body {
             font-family: sans-serif;
-            background-color: #000; /* Black background */
-            color: #fff; /* White font color */
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
         }
@@ -24,26 +25,24 @@
             justify-content: space-between;
             align-items: center;
             padding-bottom: 20px;
-            border-bottom: 1px solid #333;
         }
 
         .header a {
-            color: #A1A1A1; /* Option color */
+            color: #A1A1A1;
             text-decoration: none;
             padding: 5px 10px;
         }
 
         .header a:hover, .header a.active {
-            color: #fff; /* Hover/active color */
-            border-bottom: none; /* Remove underline */
+            color: #fff;
+            border-bottom: none;
         }
 
         .header a.active {
-            border-bottom: none; /* Remove underline from active */
+            border-bottom: none;
         }
 
         .post {
-            border-bottom: 1px solid #333;
             padding: 15px 0;
         }
 
@@ -58,29 +57,28 @@
 
         .footer {
             position: fixed;
-            bottom: 0;
+            bottom: 30px; /* Adjusted footer position */
             left: 0;
             width: 100%;
             background-color: #000;
-            border-top: 1px solid #333;
             display: flex;
             justify-content: space-around;
             padding: 10px 0;
         }
 
         .footer a {
-            color: #A1A1A1; /* Option color */
+            color: #A1A1A1;
             text-decoration: none;
         }
 
-        .footer a:hover {
-            color: #fff; /* Hover color */
+        .footer a:hover, .footer a.active {
+            color: #fff;
         }
 
         /* PWA styles */
         .install-prompt {
             position: fixed;
-            bottom: 60px; /* Adjust based on footer height */
+            bottom: 60px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #222;
@@ -140,7 +138,7 @@
     </div>
 
     <div class="footer">
-        <a href="#">home</a>
+        <a href="#" class="active">home</a>
         <a href="#">profile</a>
         <a href="#">new</a>
         <a href="#">chat</a>
